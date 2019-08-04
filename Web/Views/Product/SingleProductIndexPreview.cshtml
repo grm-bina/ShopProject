@@ -1,0 +1,50 @@
+﻿@using Web.HtmlCustomHelpers;
+
+@model Models.Product
+
+
+@{
+    string linkToProd = "/Product/Details/";
+    linkToProd += Model.ID.ToString();
+}
+<a href=@linkToProd class="preview-prod-link">
+
+    <table class="preview-prod-table">
+        <tr>
+            <td>
+                <div class="preview-prod-img-container">
+                    @Html.ImgDeserialize(Model.Pictures.FirstOrDefault(i => i.IsMainPicture).Image, "preview-prod-img")
+
+                </div>
+
+            </td>
+            <td>
+                <table class="preview-prod-text-container">
+
+                    <tr >
+                        <td>
+                            <div class="preview-prod-title">
+                                @Html.DisplayFor(Model => Model.Name)
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="module line-clamp">
+                                <p>
+                                    @Html.DisplayFor(Model => Model.Description)
+
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</a>
+

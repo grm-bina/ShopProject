@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+<body class=" body-shop ">
+    <div class="header-shop">
+        <a href="/">
+            <img src="~/Content/Media/sitelogo.png" class="site-logo" />
+        </a>
+        @{
+            if (!User.Identity.IsAuthenticated)
+            {
+                if (@ViewBag.Title != "Register")
+                {
+                    @Html.Action("LogIn", "User")
+                }
+
+            }
+            else
+            {
+                <div class="right-aligned">
+                    <span style="font-size:medium">Hi, @User.Identity.Name   </span> @Html.ActionLink("LogOut", "LogOut", "User", null, new { @class = "btn-shop" })
+                </div>
+            }
+        }
+
+    </div>
+
+    <span class="menu-shop">
+        @Html.ActionLink("All Goods", "Index", "Product", null, new { @class = "menu-btn-shop" })
+
+        @{
+            if (!User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Create Account", "Register", "User", null, new { @class = "menu-btn-shop" })
+            }
+            else
+            {
+                @Html.ActionLink("Add Product for Sale", "Create", "Product", null, new { @class = "menu-btn-shop" })
+
+            }
+        }
+
+        @Html.ActionLink("About", "About", "Product", null, new { @class = "menu-btn-shop" })
+
+        @Html.ActionLink("Shopping Cart", "ShoppingCart", "Product", null, new { @class = "menu-btn-shop" })
+
+    </span>
+
+    <div class="body-content-shop ">
+        @RenderBody()
+    </div>
+
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+
+@section LogOut{
+    <div class="right-aligned">
+
+        <h4>
+            Hi, @User.Identity.Name
+
+            @Html.ActionLink("LogOut", "LogOut", "User", null, new { @class = "btn-shop" })
+
+        </h4>
+
+    </div>
+}

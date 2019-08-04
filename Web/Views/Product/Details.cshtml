@@ -1,0 +1,43 @@
+﻿@using Web.HtmlCustomHelpers;
+
+@model Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="light-body-background-shop">
+
+    <h2 style="font-weight:bold">
+        @Html.DisplayFor(i => i.Name)
+    </h2>
+    <p>
+        Uploaded @Html.DisplayFor(i => i.PublicationDate) by @Html.DisplayFor(i => i.UploadedByUser.Username)
+
+    </p>
+    <div>
+        @foreach (var item in Model.Pictures)
+        {
+            @Html.ImgDeserialize(item.Image, "img-details")
+        }
+    </div>
+    <br />
+    <p>
+        @Html.DisplayFor(i => i.Description)
+    </p>
+    <h4>
+        @Html.LabelFor(i => i.Price):
+        @Html.DisplayFor(i => i.Price)
+    </h4>
+
+    <div>
+        @Html.ActionLink("Add to Cart", "AddToCart", new { id = Model.ID }, new { @class = "btn-shop" })
+        @Html.ValidationSummary(true, "", new { @class = "error-text" })
+    </div>
+
+</div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

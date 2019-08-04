@@ -1,0 +1,12 @@
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Debug\Models.dll.config
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Debug\Models.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Debug\Models.pdb
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Debug\EntityFramework.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Debug\EntityFramework.xml
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Debug\Models.csproj.CopyComplete
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Debug\Models.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Debug\Models.pdb

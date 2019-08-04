@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div  class="light-body-background-shop sorting-container" >
+    <h4 style="display:inline-block">Sort by:</h4>
+    @Html.ActionLink("Date", "Index", new { sortingType = "Date" }, new { @class = "btn-shop" })
+    @Html.ActionLink("Price", "Index", new { sortingType = "Price" }, new { @class = "btn-shop" })
+
+
+</div>
+<br />
+<div>
+    @foreach (var item in Model)
+    {
+        @Html.Partial("SingleProductIndexPreview", item);
+    }
+</div>

@@ -1,0 +1,21 @@
+﻿@model Models.LoginViewModel
+
+<div class="right-aligned">
+
+
+    @using (Html.BeginForm())
+    {
+
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "error-text" })
+
+        @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text-small-input-shop", @placeholder = Html.NameFor(model => model.Username) } })
+
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-small-input-shop", @placeholder = Html.NameFor(model => model.Password) } })
+
+        <input type="submit" value="LogIn" class="btn-shop" />
+
+    }
+
+</div>

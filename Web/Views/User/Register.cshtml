@@ -1,0 +1,41 @@
+﻿@model Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="light-body-background-shop">
+
+    <h2>New User?</h2>
+    <h4>Create account for sale and buy with 10% discount!</h4>
+
+
+    @using (Html.BeginForm("Register","User"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "text-input-shop", @placeholder = Html.NameFor(model => model.Username) } })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "error-text" })
+        </div>
+        <div>
+
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "text-input-shop", @placeholder = Html.NameFor(model => model.Email) } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "error-text" })
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-input-shop", @placeholder = Html.NameFor(model => model.Password) } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "error-text" })
+        </div>
+        <div class="input-file-container-div">
+            <input type="submit" value="Create" class="btn-shop" />
+            <div>
+                @Html.ValidationSummary(true, "", new { @class = "error-text" })
+            </div>
+        </div>
+    }
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

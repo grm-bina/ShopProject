@@ -1,0 +1,11 @@
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Release\Models.dll.config
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Release\Models.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Release\Models.pdb
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Release\EntityFramework.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Release\EntityFramework.SqlServer.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Release\EntityFramework.xml
+C:\документы\учеба\села\MVC\ShopProject\Models\bin\Release\EntityFramework.SqlServer.xml
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Release\Models.csproj.CoreCompileInputs.cache
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Release\Models.csproj.CopyComplete
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Release\Models.dll
+C:\документы\учеба\села\MVC\ShopProject\Models\obj\Release\Models.pdb

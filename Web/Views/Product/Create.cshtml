@@ -1,0 +1,74 @@
+﻿@model Models.ProductCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="light-body-background-shop">
+
+    <h2>Upload Product For Sale</h2>
+    <h4>Here you can sale any useless shit you have</h4>
+
+
+    @using (Html.BeginForm("Create","Product",FormMethod.Post,new {enctype="multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.EditorFor(model => model.Product.Name, new { htmlAttributes = new { @class = "text-input-shop text-big-input-shop", @placeholder = "Name" } })
+            @Html.ValidationMessageFor(model => model.Product.Name, "", new { @class = "error-text" })
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Product.Description, new { htmlAttributes = new { @class = "text-input-shop text-big-input-shop", @placeholder = "Description" } })
+            @Html.ValidationMessageFor(model => model.Product.Description, "", new { @class = "error-text" })
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Product.Price, new { htmlAttributes = new { @class = "text-input-shop text-big-input-shop", @placeholder = "Price" } })
+            @Html.ValidationMessageFor(model => model.Product.Price, "", new { @class = "error-text" })
+        </div>
+        <table class="input-file-table">
+            <tr>
+                <td class="labeles-input-file">
+                    Main Picture:
+                </td>
+                <td class="input-file">
+                    <input type="file" id="file" name="pic1" class="text-input-shop btn-shop" />
+                </td>
+                <td class="error-input-file">
+                    @Html.ValidationMessageFor(model => model.Files.MainImage, "", new { @class = "error-text" })
+                </td>
+            </tr>
+            <tr>
+                <td class="labeles-input-file">
+                    Picture #2:
+                </td>
+                <td class="input-file">
+                    <input type="file" id="file" name="pic2" class="text-input-shop btn-shop" />
+                </td>
+                <td class="error-input-file">
+                    @Html.ValidationMessageFor(model => model.Files.Image2, "", new { @class = "error-text" })
+                </td>
+            </tr>
+            <tr>
+                <td class="labeles-input-file">
+                    Picture #3:
+                </td>
+                <td class="input-file">
+                    <input type="file" id="file" name="pic3" class="text-input-shop btn-shop" />
+                </td>
+                <td class="error-input-file">
+                    @Html.ValidationMessageFor(model => model.Files.Image3, "", new { @class = "error-text" })
+                </td>
+            </tr>
+        </table>
+        <div>
+            <input type="submit" value="Add Product" class="btn-shop" />
+            <div>
+                @Html.ValidationSummary(true, "", new { @class = "error-text" })
+            </div>
+        </div>
+
+    }
+</div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

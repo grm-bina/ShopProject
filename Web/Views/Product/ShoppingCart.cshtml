@@ -1,0 +1,106 @@
+﻿
+@model Models.ShoppingCartViewModel
+
+@{
+    ViewBag.Title = "ShoppingCart";
+}
+
+
+<div class="light-body-background-shop">
+    <h2>Yours Shopping Cart</h2>
+    @if (Model.Products == null || Model.Products.FirstOrDefault() == null)
+    {
+        if (TempData.Peek("success") != null)
+        {
+            <h4 class="success-text">
+                @TempData.Peek("success")
+            </h4>
+            <br />
+        }
+        else
+        {
+            if (TempData.Peek("error") != null)
+            {
+                <h4 class="error-text">
+                    @TempData.Peek("error")
+                </h4>
+                <br />
+
+            }
+            else
+            {
+                <h4>
+                    You added nothing... :(
+                </h4>
+
+            }
+        }
+
+    }
+    @if (Model.Products != null && Model.Products.FirstOrDefault() != null)
+    {
+        <table>
+            <tr style="border-bottom:5px solid black">
+                <th style="min-width:200px">
+                    @Html.NameFor(Model => Model.Products)
+                </th>
+                <th style="padding-left:10px;">
+                    @Html.NameFor(Model => Model.Products.FirstOrDefault().Price)
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Products)
+            {
+                <tr style="border-bottom:1px solid black">
+                    <td>
+                        @Html.DisplayFor(i => item.Name)
+                    </td>
+                    <td style="padding-left:10px;">
+                        @Html.DisplayFor(i => item.Price)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.ID }, new { @class = "btn-shop" })
+                    </td>
+                </tr>
+            }
+
+            <tr style="border-top:5px solid black">
+                <td style="font-weight:bold">
+                    @Html.NameFor(Model => Model.TotalPrice)
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span> (including discount) </span>
+                    }
+
+                </td>
+                <td style="font-weight:bold; padding-left:10px;">
+                    @Html.DisplayFor(Model => Model.TotalPrice)
+
+                </td>
+                <td>
+                    @Html.ActionLink("Buy", "Buy", null, new { @class = "btn-shop" })
+
+                </td>
+                <td>
+                    <span class="error-text">@TempData.Peek("error")</span>
+                </td>
+            </tr>
+
+        </table>
+    }
+
+</div>
+
+@{
+    TempData.Remove("error");
+    TempData.Remove("success");
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
